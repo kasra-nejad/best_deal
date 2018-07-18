@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
 
+
 import "./card.css";
+import Container from "../container.js";
 
 class Card extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             price: "",
             volume: "",
@@ -14,17 +16,18 @@ class Card extends Component {
             bar: ""
 
         };
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onCalculate = this.onCalculate.bind(this);
+        this._onInputChange = this._onInputChange.bind(this);
+        this._onCalculate = this._onCalculate.bind(this);
+    
     }
 
-    onInputChange(event) {
+    _onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
-    onCalculate() {
+    _onCalculate() {
         let score = 10 - this.state.price / (this.state.volume * (this.state.concentration * 0.01));
         if (!!isNaN) {
             this.setState({
@@ -35,18 +38,24 @@ class Card extends Component {
         }
     }
 
+    _onDeleteCard = () => {
+        // console.log(e)
+        this.props.closeItem(this);
+    }
+
+
     render() {
         return (
             
-                <div className="card">
-                    <button className="card__close">X</button>
+                <div className="card" >
+                <button className="card__close" onClick={this._onDeleteCard}>X</button>
                     <h3 className="card__title">Item #</h3>
                     <input
                         type="text"
                         placeholder="price"
                         name="price"
                         value={this.state.price}
-                        onChange={this.onInputChange}
+                        onChange={this._onInputChange}
                         className="card__price"
                     />
                     <input
@@ -54,7 +63,7 @@ class Card extends Component {
                         placeholder="volume"
                         name="volume"
                         value={this.state.volume}
-                        onChange={this.onInputChange}
+                        onChange={this._onInputChange}
                         className="card__volume"
                     />
                     <input
@@ -62,14 +71,14 @@ class Card extends Component {
                         placeholder="concentration"
                         name="concentration"
                         value={this.state.concentration}
-                        onChange={this.onInputChange}
+                        onChange={this._onInputChange}
                         className="card__concentration"
                     />
                     <div className="card__score">
                         <h3 className="card__score__value">{this.state.valueRating}</h3>
                         <div className="card__score__bar" style={{ width: this.state.bar }} />
                     </div>
-                    <button className="card__calculate" onClick={this.onCalculate}>Calculate</button>
+                    <button className="card__calculate" onClick={this._onCalculate}>Calculate</button>
                 </div>
             
         );
