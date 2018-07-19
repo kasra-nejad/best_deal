@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import uuidv1 from "uuid/v1";
 import Card from "./card/card.js"
+
 
 import "./container.css";
 
@@ -17,17 +19,19 @@ class Container extends Component {
  
      this.setState ({
        cards: this.state.cards.concat(
-       <Card cards={this.state.cards.map((card)=> {return card})} key={this.state.cards.length+1} closeItem={this._closeItem}/>)
+         <Card cards={this.state.cards.map(card => card)} key={this.state.cards.length + 1} id={uuidv1()} closeItem={this._closeItem}/>)
       })
     }
 
   _closeItem = (e) => {
+    console.log(e);
+     const cards = this.state.cards.filter((card, i) => { return e.props.id !== card.props.id; })
         this.setState({
-          cards: this.state.cards.filter((card, i) => { return card !== e[i];})
+          cards: cards
     });
 
     console.log(this.state.cards);
-    console.log(e);
+    // console.log(e);
     }
   
   
@@ -40,7 +44,7 @@ class Container extends Component {
         </button>
       <ul className="container__item" >
 
-          {this.state.cards.map(card => card )}
+          {this.state.cards.map(card => card)}
           
         </ul>
       </div>);

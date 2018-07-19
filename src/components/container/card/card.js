@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 
 
+
 import "./card.css";
-import Container from "../container.js";
 
 class Card extends Component {
     constructor() {
@@ -13,7 +13,8 @@ class Card extends Component {
             volume: "",
             concentration: "",
             valueRating: "Score",
-            bar: ""
+            bar: "",
+            id: this.id
 
         };
         this._onInputChange = this._onInputChange.bind(this);
