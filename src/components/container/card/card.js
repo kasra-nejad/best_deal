@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-
-
-
 import "./card.css";
 
 class Card extends Component {
@@ -14,9 +11,8 @@ class Card extends Component {
             concentration: "",
             valueRating: "Score",
             bar: "",
-            id: this.id
-
         };
+        
         this._onInputChange = this._onInputChange.bind(this);
         this._onCalculate = this._onCalculate.bind(this);
     
@@ -40,11 +36,10 @@ class Card extends Component {
     }
 
     _onDeleteCard = () => {
-        // console.log(e)
         this.props.closeItem(this);
     }
 
-
+    
     render() {
         return (
             

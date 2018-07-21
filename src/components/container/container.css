@@ -1,26 +1,26 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; 
-  overflow: hidden;
-}
-
 .container {
   display: grid;
-  grid-template-rows: 1.5fr 5fr;
+  grid-template-rows: 2fr 5fr;
   width: 100%;
   height: 100%;
-}
-  .container__addItem{
-    width:5em;
-    height: 5em;
+  background-color: #025c6391;
+  overflow: hidden; }
+  .container__addItem {
+    width: 6em;
+    height: 6em;
     justify-self: center;
     align-self: center;
-  }
-    .container__item{
-      
-      display: grid;
-grid-auto-columns: minmax(min-content, 1fr);
-grid-auto-flow: column;
-  }
- 
+    border-radius: 50%;
+    background-color: white;
+    outline: 0;
+    border: #2aa5c4 dotted 2px;
+    box-shadow: inset 0px 1px 12px 2px;
+    color: #0a343f;
+    font-size: 1.2em; }
+    .container__addItem:active {
+      box-shadow: inset 0px 1px 17px 3px;
+      font-size: 1.18em; }
+  .container__item {
+    display: grid;
+    grid-auto-columns: minmax(min-content, 1fr);
+    grid-auto-flow: column; }

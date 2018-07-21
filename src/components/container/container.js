@@ -19,19 +19,19 @@ class Container extends Component {
  
      this.setState ({
        cards: this.state.cards.concat(
-         <Card cards={this.state.cards.map(card => card)} key={this.state.cards.length + 1} id={uuidv1()} closeItem={this._closeItem}/>)
+         <Card cards={this.state.cards.map(card => card)} key={this.state.cards.length} id={uuidv1()} closeItem={this._closeItem}/>)
       })
     }
 
   _closeItem = (e) => {
-    console.log(e);
+   
      const cards = this.state.cards.filter((card, i) => { return e.props.id !== card.props.id; })
         this.setState({
           cards: cards
     });
 
-    console.log(this.state.cards);
-    // console.log(e);
+    
+    
     }
   
   

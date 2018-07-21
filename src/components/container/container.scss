@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-rows: 2fr 6fr;
+  width: 100%;
+  background-color:#025c6391;
+  overflow: hidden;
+
+  &__addItem{
+    width:6em;
+    height: 6em;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    background-color: white;
+    outline: 0;
+    border: rgb(42, 165, 196) dotted 2px;
+    box-shadow: inset 0px 1px 12px 2px;
+    color: rgb(10, 52, 63);
+    font-size: 1.2em;
+
+    &:active{
+     box-shadow: inset 0px 1px 17px 3px; 
+     font-size: 1.18em;
+    }
+  }
+    &__item{
+      
+      display: grid;
+grid-auto-columns: minmax(min-content, 1fr);
+grid-auto-flow: column;
+  }
+
+}
