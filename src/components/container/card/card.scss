@@ -1,59 +1,101 @@
 $card-color: #c8fffc;
+@import url("https://fonts.googleapis.com/css?family=Do+Hyeon|Coda+Caption:800");
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-   
 .card {
-    display: grid;
+  display: grid;
+  justify-self: center;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 0.5fr 0.5fr repeat(6, 1fr);
+  min-width: 50%;
+  max-width: 100%;
+  height: 80%;
+  background-color: #e0ffc8ed;
+  border: #4daf86a4 solid 1px;
+  box-shadow: 0px 3px 1px black;
+  text-align: center;
+  transition: box-shadow 300ms;
+
+  &.active {
+    box-shadow: 0px 5px 4px black;
+    transform: translate(0px, -10px);
+    transition: transform 300ms;
+  }
+
+  &__title {
+    align-self: center;
+    font-family: "Do Hyeon", sans-serif;
+  }
+
+  input {
+    margin: 0 auto;
+    height: 50%;
+    width: 50%;
+    align-self: center;
     justify-self: center;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: minmax(max-content, 1fr);
-    min-width: 50%;
-    max-width: 100%;
-    height: 75%;
-    background-color: #c8fffc;
-    border: #bfafafa8 solid 2px;
-    box-shadow: 0px 0px 2px black;
+    border: #053644 solid 2px;
+    box-shadow: 1px 0.5px 0px black;
     text-align: center;
-        &__title {
-            align-self: center;
-        }
+    outline-color: #053644;
 
-        input{
-      margin: 0 auto;
-      height: 40%;
-      align-self: center;
-      justify-self: center;
-        }
-
-        &__score{
-      display: grid;
-      grid-template-rows: 1fr 2fr;
-      grid-gap: 1em;
-      width: 80%;
-      margin: 0 auto; 
-
-            &__bar{
-        text-align: center;
-        align-content: center;
-        height: 25%;
-        width: 20%;
-        background-image: linear-gradient(to right, #003687, #802d8a, #c52072, #eb4248, #ee7c00);
-            }
-
-        }
-
-        &__close{
-            justify-self: end;
-            width: 2em; 
-            height: 2em;
-            font-size: 0.75em;
-           
-        }
+    &:focus {
+      height: 60%;
+      width: 60%;
+      outline-style: dotted;
+      outline-width: 4px;
     }
+  }
 
+  &__score {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-gap: 1em;
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Do Hyeon", sans-serif;
 
+    &__bar {
+      text-align: center;
+      align-content: center;
+      height: 45%;
+      width: 20%;
+      background-image: linear-gradient(
+        to right,
+        #003687,
+        #802d8a,
+        #c52072,
+        #eb4248,
+        #ee7c00
+      );
+    }
+  }
+  &__close {
+    justify-self: end;
+    width: 3em;
+    height: 3em;
+    font-size: 0.75em;
+    border: none;
+    background-color: #d5f6c3;
+    .material-icons {
+      color: #053644;
+      text-shadow: 1px 1px 1px #30403875;
+    }
+  }
+  &__calculate {
+    background-color: #053644;
+    color: #fff;
+    font-size: 1.1em;
+    font-family: "Coda Caption", sans-serif;
+    text-shadow: 2px 1px 4px #000;
+  }
+}
+@media (max-width: 760px) {
+  .card {
+    min-width: 84%;
+  }
+}
